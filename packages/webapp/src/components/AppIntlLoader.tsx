@@ -29,7 +29,7 @@ function getCurrentLocal() {
     localStorageLocaleKey: 'lang',
   });
   if (!find(SUPPORTED_LOCALES, { value: currentLocale })) {
-    currentLocale = 'en';
+    currentLocale = 'fr';
   }
   return currentLocale;
 }
