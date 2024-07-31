@@ -3,59 +3,59 @@ import printValue from '../printValue';
 
 export const locale = {
   mixed: {
-    default: '${path} is invalid',
-    required: '${path} is a required field ',
-    oneOf: '${path} must be one of the following values: ${values}',
-    notOneOf: '${path} must not be one of the following values: ${values}',
+    default: '${path} est invalide',
+    required: '${path} est un champ requis',
+    oneOf: '${path} doit etre l\'une de ces valeurs: ${values}',
+    notOneOf: '${path} ne doit pas etre l\'une de ces valeurs: ${values}',
     notType: ({ path, type, value, originalValue }) => {
       let isCast = originalValue != null && originalValue !== value;
       let msg =
-        `${path} must be a \`${type}\` type, ` +
-        `but the final value was: \`${printValue(value, true)}\`` +
+        `${path} doit etre de type \`${type}\` ` +
+        `mais la valeur finale est: \`${printValue(value, true)}\`` +
         (isCast
-          ? ` (cast from the value \`${printValue(originalValue, true)}\`).`
+          ? ` (à partir de la valeur \`${printValue(originalValue, true)}\`).`
           : '.');
 
       if (value === null) {
-        msg += `\n If "null" is intended as an empty value be sure to mark the schema as \`.nullable()\``;
+        msg += `\n Si "null" est destiné à être une valeur vide, assurez-vous de marquer le schéma comme \`.nullable()\``;
       }
 
       return msg;
     },
-    defined: '${path} must be defined',
+    defined: '${path} doit etre défini',
   },
   string: {
-    length: '${path} must be exactly ${length} characters',
-    min: '${path} must be at least ${min} characters',
-    max: '${path} must be at most ${max} characters',
-    matches: '${path} must match the following: "${regex}"',
-    email: '${path} must be a valid email',
-    url: '${path} must be a valid URL',
-    trim: '${path} must be a trimmed string',
-    lowercase: '${path} must be a lowercase string',
-    uppercase: '${path} must be a upper case string',
+    length: '${path} doit contenir exactement ${length} characteres',
+    min: '${path} doit avoir au moins ${min} characteres',
+    max: '${path} doit avoir au plus ${max} characteres',
+    matches: '${path} doit correspondre à ce qui suit: "${regex}"',
+    email: '${path} doit etre un email valide',
+    url: '${path}doit etre une URL valide',
+    trim: '${path} doit être une chaîne tronquée',
+    lowercase: '${path} doit être une chaîne de caractères minuscules',
+    uppercase: '${path} doit être une chaîne de caractères majuscules',
   },
   number: {
-    min: '${path} must be greater than or equal to ${min}',
-    max: '${path} must be less than or equal to ${max}',
-    lessThan: '${path} must be less than ${less}',
-    moreThan: '${path} must be greater than ${more}',
-    notEqual: '${path} must be not equal to ${notEqual}',
-    positive: '${path} must be a positive number',
-    negative: '${path} must be a negative number',
-    integer: '${path} must be an integer',
+    min: '${path} doit être supérieur ou égal à ${min}',
+    max: '${path} doit être inférieur ou égal à ${max}',
+    lessThan: '${path} doit être inférieur à ${less}',
+    moreThan: '${path} doit être supérieur à ${more}',
+    notEqual: '${path} doit être différent de ${notEqual}',
+    positive: '${path} doit être un nombre positif',
+    negative: '${path} doit être un nombre négatif',
+    integer: '${path} doit être un nombre entier',
   },
   date: {
-    min: '${path} field must be later than ${min}',
-    max: '${path} field must be at earlier than ${max}',
+    min: '${path} doit être postérieur à ${min}',
+    max: '${path} doit être antérieur à ${max}',
   },
   boolean: {},
   object: {
     noUnknown:
-      '${path} field cannot have keys not specified in the object shape',
+      '${path} ne peut pas avoir de clés non spécifiées dans la forme de l\'objet',
   },
   array: {
-    min: '${path} field must have at least ${min} items',
-    max: '${path} field must have less than or equal to ${max} items',
+    min: '${path} doit avoir au moins ${min} items',
+    max: '${path} doit être inférieur ou égal à ${max} items',
   },
 };

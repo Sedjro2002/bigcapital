@@ -12,6 +12,7 @@ module.exports = {
     },
   },
   devServer: {
-    allowedHosts: process.env.GITPOD_HOST ? 'all' : 'auto'
+    allowedHosts: process.env.GITPOD_HOST ? 'all' : 'auto',
+    port: 4000,
   },
 };
